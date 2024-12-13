@@ -1,0 +1,11 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "first react app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Amiya Ranjan Boxi",
+  "license": "ISC"
+}
