@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+  }
+
+.logo{
+    width: 100;
+}
+
+.ul{
+    list-style: none;
+    display: flex;
+    gap: 40;
+}
+
+.restaurantCard{
+    width: 200;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid red;
+}
+.restaurantCard > img{
+    width: 100%;
+}
+.restaurantList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

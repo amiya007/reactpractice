@@ -1,12 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "i",
-  { style: { fontSize: 45 } },
-  "Namaste React"
-);
-
 const restaurantLists = [
   {
     info: {
@@ -1402,18 +1396,58 @@ const restaurantLists = [
   },
 ];
 
-
-
-const Heading2 = () => (
-  <div>
-    {heading}
-    <h1>React Rendered</h1>
-    <h2>React Rendered</h2>
-    <h3>React Rendered</h3>
-    <h4>React Rendered</h4>
-    <h5>React Rendered</h5>
+const Head = () => (
+  <div className="header">
+    <img
+      className="logo"
+      src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg"
+    ></img>
+    <ul className="ul">
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+      <li>Cart</li>
+    </ul>
   </div>
 );
 
+const RestaurantCard = ({ restaurant }) => {
+  return (
+    <div className="restaurantCard" key="restaurantCard">
+      <img
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          restaurant.cloudinaryImageId
+        }
+      />
+      {console.log(
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          restaurant?.cloudinaryImageId
+      )}
+      <h3>{restaurant?.name}</h3>
+      <h4>{restaurant?.cuisines.join(", ")}</h4>
+      <h3>{"Avg. ratings: " + restaurant?.avgRatingString ?? "--"}</h3>
+    </div>
+  );
+};
+
+const Body = () => (
+  <div className="restaurantList" key="body">
+    {restaurantLists.map((res) => (
+      <RestaurantCard restaurant={res.info} />
+    ))}
+  </div>
+);
+
+const Footer = () => <h1>React Dev</h1>;
+
+const Spg = () => (
+  <>
+    <Head />
+    <Body />
+    <Footer />
+  </>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Heading2 />);
+root.render(<Spg />);
